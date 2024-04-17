@@ -4,110 +4,408 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Bootstrap 5 project</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" >
     <link href="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-      font{
+      font {
         font-family: montserrat;
       }
+    
       body {
-        background: f1fbff;
+        background: #f1fbff;
       }
+    
       .section-padding {
         padding: 100px;
       }
-      .carousel-item{
+    
+      .carousel-item {
         height: 100vh;
         min-height: 300px;
       }
+    
       .carousel-caption {
         bottom: 220px;
-        z-index: 2;
-      }
-      .carousel-caption{
         font-size: 45px;
         text-transform: uppercase;
         letter-spacing: 2px;
         margin-top: 25px;
+        z-index: 2;
       }
-      .carousel-caption p{
+    
+      .carousel-caption p {
         width: 60%;
         margin: auto;
         font-size: 18px;
         line-height: 1.9;
       }
-      .carousel-inner::before{
+     
+      .carousel-inner::before {
         content: '';
         position: absolute;
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
-        background: rgba(0,0,0,0.7);
+        background: rgba(0, 0, 0, 0.7);
         z-index: 1;
       }
-      .navbar-nav a{
+    
+      .navbar-nav a {
         font-size: 15px;
         text-transform: uppercase;
         font-weight: 500;
+        color: black;
       }
-      .navbar-light .navbar-brand{
+    
+      .navbar-light .navbar-brand {
         color: black;
         font-size: 25px;
         text-transform: uppercase;
         font-weight: 700;
         letter-spacing: 2px;
       }
+    
       .navbar-light .navbar-brand:focus,
-      .navbar-light .navbar-brand:hover{
+      .navbar-light .navbar-brand:hover {
         color: black;
       }
-      .navbar-light .navbar-nav .navbar-link{
-        color: black;
+    
+      .navbar-light .navbar-nav .navbar-link {
+       color: black;
       }
-      .w-100{
+    
+      .w-100 {
         height: 100vh;
       }
-      .service .card-body i{
+    
+      .service .card-body i {
         font-size: 50px;
       }
+    
+      .html {
+        scroll-behavior: smooth;
+      }
+    
+      .team .card-body i {
+        font-size: 20px;
+      }
+    
+      .portfolio .card,
+      .team .card {
+        box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+      }
+    
+      .rounded-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+      }
+    
+      /*gallery*/
+    
+     * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    
+      .body {
+        font-size: 1.3rem;
+        font-family: 'Oswald', sans-serif;
+        background: #f9f9f9;
+      }
+    
+      .container {
+        max-width: 1100px;
+        margin: auto;
+        overflow: auto;
+        padding: 0 2rem;
+      }
+    
+      .main-header {
+        height: 55vh;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+    
+      .main-header h1 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        line-height: 1.2;
+      }
+    
+      .main-header h1 span {
+        color: orange;
+      }
+    
+      .main-header p {
+        font-size: 2rem;
+      }
+    
+      .img {
+        width: 100%;
+      }
+    
+      .card {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+        background: #f1f1f1;
+        margin-bottom: 2rem;
+      }
+    
+      .card h3 {
+        margin-bottom: 2rem;
+      }
+    
+      .card img {
+        height: 400px;
+      }
+    
+      .card > div {
+        padding: 2rem;
+      }
+    
+      .card:nth-child(even) img {
+        order: 2;
+      }
+    
+      .btn {
+        display: inline-block;
+        background: #000;
+        color: #fff;
+        padding: 0.8rem 1.8rem;
+        margin-top: 2rem;
+        cursor: pointer;
+      }
+    
+      .btn:hover {
+        opacity: 0.8;
+      }
+    
+      .search-bar,
+      .newsletter-signup {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+    
+      .featured-destinations {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+    
+      .destination {
+        width: calc(33.33% - 10px);
+        margin-bottom: 20px;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+    
+      .destination img,
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+      }
+    
 
+      .home{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      }
+    
+      .gallery {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+      }
+    
+      .gallery-item {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 300px;
+        margin-right: 20px;
+        border-radius: 5px;
+        overflow: hidden;
+      }
 
+    
+      .project-card {
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s;
+        margin-bottom: 20px;
+      }
 
+      .project-card:hover {
+       transform: translateY(-5px);
+      }
 
-      /*====Responsive css===*/
-      @media only screen and (min-width:768px) and (max-width:991px){
-        .carousel-caption{
-          bottom: 370px;
+      .project-card img {
+        width: 100%;
+        height: auto;
+      
+      }
+
+      .project-card h3 {
+        font-size: 18px;
+        margin: 15px 0 10px;
+      }
+
+      .project-card p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        padding: 0 15px;
+        text-align:center;
+      }
+
+      .project-card .btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .project-card .btn:hover {
+        background-color: #0056b3;
+      }
+      .service-card {
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s;
+       margin-bottom: 20px;
+       text-align: center;
+       padding: 20px;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .service-card i {
+        font-size: 40px;
+        color: #007bff;
+        margin-bottom: 15px;
+      }
+
+      .service-card h3 {
+        font-size: 18px;
+        margin: 10px 0;
+      }
+
+      .service-card p {
+        font-size: 14px;
+        margin-bottom: 15px;
+        text-align: justify;
+      }
+
+      .service-card .btn {
+        display: inline-block;
+        background-color: #007bff;
+        color: #fff;
+        padding: 8px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      .service-card .btn:hover {
+        background-color: #0056b3;
+      }
+      
+      .team-card {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .team-card img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%; /* This makes the image round */
+        object-fit: cover; /* This ensures the image fills the circle */
+        margin-bottom: 10px;
+      }
+
+      .team-card h3 {
+        font-size: 18px;
+        margin: 5px 0;
+      }
+
+      .team-card p {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      /* Responsive CSS */
+      @media only screen and (min-width: 768px) and (max-width: 991px) {
+        .carousel-caption {
+         bottom: 370px;
         }
-        .carousel-caption p{
+        .carousel-caption p {
           width: 100%;
-
+        }
+        .card {
+          margin-bottom: 30px;
+        }
+        .img-area img {
+          width: 50%;
         }
       }
-      @media only screen and (max-width:767px){
-        .navbar-nav{
+    
+      @media only screen and (max-width: 767px) {
+        .navbar-nav {
           text-align: center;
         }
-        .carousel-caption{
+        .carousel-caption {
           bottom: 125px;
         }
-        .carousel-caption h5{
+        .carousel-caption h5 {
           padding: 10px 15px;
           font-size: 15px;
         }
-        .carousel-caption a{
+        .carousel-caption a {
           padding: 10px 15px;
         }
-        .carousel-caption p{
+        .carousel-caption p {
           width: 100%;
           line-height: 1.6;
           font-size: 12px;
         }
+        .about-text {
+          padding-top: 50px;
+        }
+        .card {
+          margin-bottom: 30px;
+        }
       }
-        
+    
       
+      @media(max-width:700px) {
+       .card {
+         display: block;
+        }
+      }
+
     </style>
   </head>
   <body>
@@ -185,6 +483,97 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+
+      <section id="home" class="home section-padding">
+        
+          <div class="container">
+            <div class="search-bar">
+              <input type="text" placeholder="Search...">
+              <button type="submit">Search</button>
+            </div>
+          
+            <header class="main-header">
+              <h1><span>Featured</span>Destinations</h1>
+               <p>Explore our curated selection of featured destinations, handpicked to inspire your next adventure.</p>
+            </header>
+            <main class="container">
+              <section class="card">
+                <img src="photos/d4.jpg" alt="Destination 1">
+                <div>
+                  <h3>Destination 1</h3>
+                  <p>Immerse yourself in the serene beauty of mountain living near picturesque lakes. From cozy cabins with panoramic views to rustic lodges nestled in the wilderness, discover the perfect mountain retreat for your next getaway.</p>
+                  <a href="#" class="btn">Search Here</a>
+                </div>
+              </section>
+              <section class="card" data-aos="fade-left">
+                <img src="photos/D2.jpg" alt="Destination 2">
+                <div>
+                  <h2>Destination 2</h2>
+                  <p>Whether you're seeking adventure on the hiking trails or simply craving moments of peace in the forest, this idyllic setting promises an unforgettable experience.</p>
+                  <a href="#" class="btn">Search Here</a>
+                </div>
+              </section>
+              <section class="card" data-aos="fade-right">
+                <img src="photos/D3.jpg" alt="Destination 3">
+                <div>
+                  <h2>Destination 3</h2>
+                  <p> Wake up to the gentle sounds of nature, with the sun casting its golden rays upon the tranquil waters below. A retreat to the mountains near lakes offers a tranquil escape from the hustle and bustle of everyday life.</p>
+                  <a href="#" class="btn">Search Here</a>
+                </div>
+              </section>
+            </main>
+           
+            <div class="travel-guides">
+              <h2>Travel Guides</h2>
+              <p>Explore our collection of travel guides to discover insider tips, hidden gems, and must-see attractions in your favorite destinations.</p>
+                 <ul>
+                    <li><a href="#">Paris: A City of Romance</a></li>
+                    <li><a href="#">Tokyo: The Ultimate Urban Adventure</a></li>
+                    <li><a href="#">Rome: Unraveling Ancient History</a></li>
+                    <li><a href="#">Bali: Discovering Paradise</a></li>
+                  </ul>
+            </div>
+          
+            <div class="reviews">
+              <h2>Reviews</h2>
+              <div class="review">
+                <blockquote>
+                  <p>"I recently booked a trip through this agency and had an amazing experience! The staff was friendly and helpful, and the itinerary they put together exceeded my expectations. I highly recommend them to anyone looking for a stress-free travel experience."</p>
+                </blockquote>
+                <p class="reviewer">- Sarah W.</p>
+              </div>
+              <div class="review">
+                <blockquote>
+                  <p>"My family and I had an unforgettable vacation thanks to the fantastic recommendations and arrangements made by this travel agency. Everything from the accommodations to the excursions was top-notch. We will definitely be booking with them again in the future!"</p>
+                </blockquote>
+                <p class="reviewer">- Michael H.</p>
+              </div>
+            </div>
+          
+            <div class="newsletter-signup">
+              <h2>Newsletter Signup</h2>
+              <form action="#">
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+              </form>
+            </div>
+          
+            <div class="gallery">
+              <div class="gallery-item">
+                <img src="photos/G1.jpg" alt="Gallery 1">
+              </div>
+              <div class="gallery-item">
+                <img src="photos/G2.jpg" alt="Gallery 2">
+              </div>
+              <div class="gallery-item">
+                <img src="photos/G3.jpg" alt="Gallery 3">
+              </div>
+              <!-- Add more gallery items as needed -->
+            </div>
+          </div>
+          
+        
+      </section>
       <!-- about section -->
       <section id="about" class="about section-padding">
         <div class="container">
@@ -223,7 +612,7 @@
                 <div class="card-body">
                   <i class="bi bi-subtract"></i>
                   <h3 class="card-title">Best Quality</h3>
-                  <p class="lead">Whether you're craving an adrenaline-pumping adventure, a luxurious escape, or a cultural immersion, we have the expertise to make your travel dreams a reality. </p>
+                  <p class="lead">Whether you're craving an adventure, we have the expertise to make your travel dreams a reality. </p>
                   <button class="btn btn-warning text-dark">Read More</button>
                 </div>
               </div>
@@ -235,7 +624,7 @@
                 <div class="card-body">
                   <i class="bi bi-slack"></i>
                   <h3 class="card-title">Intergrity</h3>
-                  <p class="lead">Our dedicated team ensures seamless logistics, insider access to unique experiences, and round-the-clock support, so you can focus on creating memories that last a lifetime.</p>
+                  <p class="lead">Our dedicated team ensures seamless logistics, insider access to unique experiences,exciting promotions, so you can focus on creating memories that last a lifetime.</p>
                   <button class="btn btn-warning text-dark">Read More</button>
                 </div>
               </div>
@@ -255,6 +644,191 @@
           </div>
         </div>
       </section>
+
+      <!---portfolio section-->
+       <section id="portfolio" class="porfolio section-padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-header text-center pb-5">
+                <h2>Our Projects</h2>
+                <p>At Wanderlust Expeditions, we pride ourselves on curating unforgettable experiences for our clients. Dive into our portfolio to discover the destinations, itineraries, and adventures that await you:</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-md-12 col-lg-4">
+              <div class="card text-center bg-white pb-2">
+                <div class="card-body text-dark">
+                  <div class="img-area mb-47">
+                    <img src="photos/pb3.jpg" alt="" class="img fluid">
+                  </div>
+                  <h3 class="card-title">Destinations</h3>
+                  <p class="lead">From the sun-kissed beaches of Bali to the majestic mountains of the Swiss Alps, our portfolio features a diverse range of destinations to suit every traveler's taste.</p>
+                  <button class="btn bg-warning text-dark">Learn More</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+              <div class="card text-center bg-white pb-2">
+                <div class="card-body text-dark">
+                  <div class="img-area mb-47">
+                    <img src="photos/y1.jpg" alt="" class="img fluid">
+                  </div>
+                  <h3 class="card-title">Tours</h3>
+                  <p class="lead">Whether you're dreaming of a luxury cruise through the Mediterranean our tours and packages has something for everyone.</p>
+                  <button class="btn bg-warning text-dark">Learn More</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-4">
+              <div class="card text-center bg-white pb-2">
+                <div class="card-body text-dark">
+                  <div class="img-area mb-47">
+                    <img src="photos/plane-6511878_640.jpg" alt="" class="img fluid">
+                  </div>
+                  <h3 class="card-title">Custom Itineraries</h3>
+                  <p class="lead">Looking for something truly unique? Let us design a custom itinerary tailored to your preferences.We got you!</p>
+                  <button class="btn bg-warning text-dark">Learn More</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section> 
+
+       <!--team section-->
+       <section id="team" class="team section padding">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-header text-center pb-5">
+                <h2>Our Team</h2>
+                <p>Our team is a shining example of synergy and collaboration. Each member brings unique strengths and perspectives to the table, creating a dynamic environment where innovation flourishes and goals are achieved. Together, you navigate challenges with resilience and determination, celebrating victories both big and small along the way. Our dedication to supporting one another fosters a sense of camaraderie that fuels success and makes every milestone even more rewarding. Keep up the fantastic work, because together, there's no limit to what you can accomplish!</p>
+              </div>
+            </div>
+          </div> 
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg 3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="photos/user1.jpg" alt="" class="img-fluid-rounded-circle">
+                  <h3 class="card-title py-2">Aelis Reyes</h3>
+                  <p class="card-text">Aelis, your presence on our team is like a guiding light, illuminating our path with your wisdom, dedication, and unwavering positivity. Your exceptional talents not only contribute to our collective success but also inspire each of us to reach new heights.</p>
+                  <p class="socials">
+                    <i class="bi bi-twitter text-dark mx-1"></i>
+                    <i class="bi bi-facebook text-dark mx-1"></i>
+                    <i class="bi bi-linkedin text-dark mx-1"></i>
+                    <i class="bi bi-instagram text-dark mx-1"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg 3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="photos/user2.jpg" alt="" class="img-fluid-rounded-circle">
+                  <h3 class="card-title py-2">Aelis Reyes</h3>
+                  <p class="card-text">Aelis, your presence on our team is like a guiding light, illuminating our path with your wisdom, dedication, and unwavering positivity. Your exceptional talents not only contribute to our collective success but also inspire each of us to reach new heights.</p>
+                  <p class="socials">
+                    <i class="bi bi-twitter text-dark mx-1"></i>
+                    <i class="bi bi-facebook text-dark mx-1"></i>
+                    <i class="bi bi-linkedin text-dark mx-1"></i>
+                    <i class="bi bi-instagram text-dark mx-1"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg 3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="photos/user3.jpg" alt="" class="img-fluid-rounded-circle">
+                  <h3 class="card-title py-2">Aelis Reyes</h3>
+                  <p class="card-text">Aelis, your presence on our team is like a guiding light, illuminating our path with your wisdom, dedication, and unwavering positivity. Your exceptional talents not only contribute to our collective success but also inspire each of us to reach new heights.</p>
+                  <p class="socials">
+                    <i class="bi bi-twitter text-dark mx-1"></i>
+                    <i class="bi bi-facebook text-dark mx-1"></i>
+                    <i class="bi bi-linkedin text-dark mx-1"></i>
+                    <i class="bi bi-instagram text-dark mx-1"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg 3">
+              <div class="card text-center">
+                <div class="card-body">
+                  <img src="photos/team1.jpg" alt="" class="img-fluid-rounded-circle">
+                  <h3 class="card-title py-2">Aelis Reyes</h3>
+                  <p class="card-text">Aelis, your presence on our team is like a guiding light, illuminating our path with your wisdom, dedication, and unwavering positivity. Your exceptional talents not only contribute to our collective success but also inspire each of us to reach new heights.</p>
+                  <p class="socials">
+                    <i class="bi bi-twitter text-dark mx-1"></i>
+                    <i class="bi bi-facebook text-dark mx-1"></i>
+                    <i class="bi bi-linkedin text-dark mx-1"></i>
+                    <i class="bi bi-instagram text-dark mx-1"></i>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       </section>
+
+
+     <!--contact section-->
+     <section id="contact" class="contact section-padding">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-header text-center pb-5">
+              <h2>Contact Us</h2>
+              <p>We're here to help you embark on your next adventure. Reach out to us for inquiries, bookings, or any assistance you may need.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0">
+          <div class="col-md-12 pt-0 pt-4 p-4 pb-4">
+            <form action="#" class="bg-light p-4.m-auto">
+              <div class="row">
+               <div class="col-md-12">
+                 <div class="mb-3">
+                   <input type="text" class="form-control" required placeholder="Your Full name">
+                 </div>
+               </div>
+               <div class="col-md-12">
+                 <div class="mb-3">
+                   <input type="email" class="form-control" required placeholder="Your Email Here">
+                 </div>
+               </div>
+               <div class="col-md-12">
+                 <div class="mb-3">
+                   <textarea rows="3" required class="form-control" placeholder="Your Query Here"></textarea>
+                 </div>
+               </div>
+
+               <button class="btn btn-warning btn-lg btn-block mt-3">Send Now</button>
+              </div>
+           </form>
+             
+            
+          </div>
+        </div> 
+      </div>
+     </section>
+
+      <!--footer-->
+      <footer class="bg-dark p-2 text-center">
+        <div class="container">
+          <p class="text-white">All Rights Reserved @Wanderlust Expeditions</p>
+        </div>
+      </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        offset:400,
+        duration:1000
+      });
+    </script>
   </body>
 </html>
